@@ -2,8 +2,10 @@
 
 import View from './View.js';
 
-import icons from 'url:../../img/icons.svg'; //parcel 2 syntax for static files not programming files
-import { Fraction } from 'fractional'; // any libraries from NPM we just need to write the name and no need for the actual path.
+import icons from 'url:../../img/icons.svg';  //parcel 2 syntax for static files not programming files
+import { numberToFraction } from '../helpers.js';
+// import { Fraction } from 'fractional'; // any libraries from NPM we just need to write the name and no need for the actual path.
+
 
 
 class RecipeView extends View {
@@ -118,7 +120,7 @@ class RecipeView extends View {
           <svg class='recipe__icon'>
             <use href='${icons}#icon-check'></use>
           </svg>
-          <div class='recipe__quantity'>${ingredient.quantity ? new Fraction(ingredient.quantity).toString() : ``}</div>
+          <div class='recipe__quantity'>${ingredient.quantity ? new numberToFraction(ingredient.quantity).toString() : ``}</div>
           <div class='recipe__description'>
             <span class='recipe__unit'>${ingredient.unit}</span>
             ${ingredient.description}
